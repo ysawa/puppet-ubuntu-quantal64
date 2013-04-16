@@ -29,33 +29,10 @@ node default {
   include rvm
   include mosh
   include nodejs
-  # include ganglia
+  include munin::install
+  include nginx::config::default
+  include ptetex3
 
   ssl::cert { 'server':
   }
-}
-
-node /^web/ inherits default {
-  include munin::install
-  include nginx::config::cluster
-}
-
-node /^app/ inherits default {
-  include mongodb::replicaset
-
-  mongodb::replicaset::initiate { 'set01':
-    host => [
-      "192.168.3.10:27017",
-      "192.168.3.11:27017",
-      "192.168.3.12:27017",
-    ]
-  }
-
-  include nginx::config::default
-  include ptetex3
-  user { 'app':
-    ensure => present,
-    managehome => true,
-  }
-  rvm::user{ 'app': }
 }
