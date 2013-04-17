@@ -1,4 +1,4 @@
 puppet-ubuntu-precise64
 =======================
 
-puppet packages for ubunt 12.04 amd64
+puppet packages for ubuntu 12.10 amd64
