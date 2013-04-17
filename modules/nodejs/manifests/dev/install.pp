@@ -1,15 +1,12 @@
-class nodejs::install {
+class nodejs::dev::install {
 
   $packages = [
-    'python',
-    'g++',
-    'make',
-    'nodejs',
+    'nodejs-dev',
   ]
   package { $packages:
     require => [
       # in order to install node.js
-      Class['ppa::repositories::nodejs'],
+      Class['nodejs::install'],
     ],
     ensure => installed,
   }

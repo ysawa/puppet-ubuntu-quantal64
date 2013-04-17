@@ -31,7 +31,7 @@ node default {
   include nodejs
   include munin::install
   include nginx::config::default
-  # include ptetex3
+  include ptetex3
 
   ssl::cert { 'server':
   }
