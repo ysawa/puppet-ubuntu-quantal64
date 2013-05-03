@@ -15,7 +15,7 @@ node default {
   include essentials
   include logrotate
   include ssl
-  include php5
+  # include php5
   include nginx::install
   include graphicsmagick
   include redis
@@ -32,6 +32,7 @@ node default {
   include munin::install
   include nginx::config::default
   include ptetex3
+  include language-pack::ja::install
 
   ssl::cert { 'server':
   }
